@@ -56,13 +56,13 @@ module.exports = class {
 
       return
     }
-    const result = []
+    const result = ""
 
     for (const issueKey of match) {
       const issue = await this.Jira.getIssue(issueKey)
 
       if (issue) {
-        result.push(issue.key)
+        result+=issue.key
       }
     }
     return  { issue: result }
