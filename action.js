@@ -50,14 +50,16 @@ module.exports = class {
 
       return
     }
+    const result = []
 
     for (const issueKey of match) {
       const issue = await this.Jira.getIssue(issueKey)
 
       if (issue) {
-        return { issue: issue.key }
+        result.push(issue.key)
       }
     }
+    return  { issue: result }
   }
 
   preprocessString (str) {
